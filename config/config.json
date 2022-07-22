@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "sig",
+    "password": "123456789",
+    "database": "itquizz",
+    "host": "mysql",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "sig",
+    "password": "123456789",
+    "database": "itquizz",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "sig",
+    "password": "123456789",
+    "database": "itquizz",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}

@@ -1,0 +1,6 @@
+execute "npm init" in the server folder
+go to the server folder and execute "npm install express, cors, mysql2"
+create your entry file (index.js) and write call express framework
+install also nodemon package (to update automalicaly the server when pres ctrl+s) and add "start" ; "nodemon index.js" in package.json script tag
+install the package "sequilize, sequilize-cli" for database request.
+execute sequilize init

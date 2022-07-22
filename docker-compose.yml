@@ -1,0 +1,37 @@
+version: '3.8'
+services:
+  web:
+    build:
+      context: ./
+      target: dev
+    volumes:
+      - .:/app
+    command: npm run start:dev
+    ports:
+      - "5000:5000"
+    environment:
+      NODE_ENV: development
+      DEBUG: nodejs-docker-express:*
+      DB_USERNAME: sig
+      DB_PASSWORD: 123456789
+      DB_DATABASE: itquizz
+      DB_HOSTNAME: mysql
+
+  mysql:
+    container_name: mysql4
+    image: mysql:8.0
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_RANDOM_ROOT_PASSWORD: "yes"
+      MYSQL_DATABASE: "itquizz"
+      MYSQL_USER: "sig"
+      MYSQL_PASSWORD: "123456789"
+    ports:
+      - "3307:3306"
+    volumes:
+      - /var/lib/mysql
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      timeout: 5s
+      retries: 10
